@@ -10,38 +10,43 @@ class Directory extends React.Component {
 
         this.state = {
             sections: [{
-                title: 'sombrero',
+                title: 'sombreros',
                 imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-                id: 1
+                id: 1,
+                linkUrl: 'sombreros'
             },
         {
             title: 'chamarras',
             imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-            id: 2
+            id: 2,
+            linkUrl: ''
         },
-    {
-        title: 'zapatos',
-        imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-        id: 3
-    },
-    {
-        title: 'mujeres',
-        imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-        id: 4
-    },
-    {
-        title: 'hombres',
-        imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-        id: 5
-    }]
+        {
+            title: 'zapatos',
+            imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+            id: 3,
+            linkUrl: ''
+        },
+        {
+            title: 'mujeres',
+            imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+            id: 4,
+            linkUrl: ''
+        },
+        {
+            title: 'hombres',
+            imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+            id: 5,
+            linkUrl: ''
+        }]
         }
     }
 
     render() {
         return (
             <div className='directory-menu'>
-             {   this.state.sections.map(({title, imageUrl, id}) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} />
+             {   this.state.sections.map(({id, ...otherSectionsProps}) => (
+                    <MenuItem key={id} {...otherSectionsProps}/>
                 ))}
             </div>
 
